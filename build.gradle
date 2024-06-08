@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'ru.mloleg'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'ru.mloleg'
+            artifactId = 'logging-starter'
+            version = '1.0'
+
+            from components.java
+        }
+    }
+    repositories {}
+}
+
+dependencies {
+}
