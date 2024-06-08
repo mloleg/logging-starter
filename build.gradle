@@ -14,9 +14,9 @@ repositories {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'ru.mloleg'
-            artifactId = 'logging-starter'
-            version = '1.0'
+            groupId = rootProject.getGroup()
+            artifactId = rootProject.getName()
+            version = rootProject.getVersion()
 
             from components.java
         }
