@@ -16,7 +16,6 @@ public class LogExecutionTimeAspect {
 
     @Around("@annotation(LogExecutionTime)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println("test");
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
@@ -24,8 +23,8 @@ public class LogExecutionTimeAspect {
             return joinPoint.proceed();
         } finally {
             stopWatch.stop();
-            log.info("Время исполнения метода '%s': %dнс"
-                    .formatted(joinPoint.getSignature().getName(), stopWatch.getTotalTimeNanos()));
+            log.info("Method '%s' performance: %dms"
+                    .formatted(joinPoint.getSignature().getName(), stopWatch.getTotalTimeMillis()));
         }
     }
 }
